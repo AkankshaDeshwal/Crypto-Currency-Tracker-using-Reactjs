@@ -19,5 +19,12 @@
         margin:0;
         padding: 0;
         background: var(--color-bg-primary);
+        color: var(--color-muted);
+        font-family: var(--font-secondary);
+    }
+
+    h1 {
+        color: var(--color-foreground);
+        font-family: var(--font-primay);
     }
 }

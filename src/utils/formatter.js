@@ -11,3 +11,7 @@ export const compactPrice = (price) => {
   compactDisplay: 'short' // Uses 'M', 'B', etc.
 }).format(price);
 }
+
+export const formatNumber = (num) => {
+    return new Intl.NumberFormat('en-US').format(num)
+}

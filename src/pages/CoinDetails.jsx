@@ -3,10 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchChartData, fetchCoinData } from "../api/CoinGecko";
 import Header from "../components/Header";
 import MarketRankPill from "../components/MarketRankPill";
-import { formatPrice } from "../utils/formatter";
+import { compactPrice, formatNumber, formatPrice } from "../utils/formatter";
 import PercentChangeDisplay from "../components/PercentChangeDisplay";
 import TextNumInfo from "../components/TextNumInfo";
 import {ResponsiveContainer, LineChart, XAxis, YAxis, Line, CartesianGrid, Tooltip} from "recharts";
+import ContentBox from "../components/ContentBox";
 
 const CoinDetails = () => {
   const { id } = useParams();
@@ -74,7 +75,7 @@ const CoinDetails = () => {
         <Header />
         <hr className="w-full shadow-md shadow-gray-100 my-4" />
 
-        <div className="w-full md:max-w-2/3 flex flex-col items-start mt-4 gap-8">
+        <div className="w-full md:max-w-2/3 flex flex-col items-start mt-4  mb-8 gap-8">
           <div className="flex flex-col items-start gap-4">
             <div className="flex gap-4">
               <img
@@ -107,7 +108,7 @@ const CoinDetails = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col bg-bg-secondary rounded-md outline-1 outline-muted px-12 py-8 items-start gap-8 mb-4">
+          <div className="w-full flex flex-col bg-bg-secondary rounded-md outline-1 outline-muted px-12 py-8 items-start gap-8">
             <h1 className="text-xl font-semibold mt-2">
               Prices Chart (7 days)
             </h1>
@@ -141,6 +142,24 @@ const CoinDetails = () => {
             
 
             
+          </div>
+
+          <div className="w-full flex justify-between gap-6">
+            <ContentBox>
+                <TextNumInfo text="MARKET CAP" num={compactPrice(coinData.market_data.market_cap.usd)} textSize="text-xs" numSize="text-lg"/>
+            </ContentBox>
+
+            <ContentBox>
+                <TextNumInfo text="VOLUME 24H" num={compactPrice(coinData.market_data.total_volume.usd)} textSize="text-xs" numSize="text-lg"/>
+            </ContentBox>
+
+            <ContentBox>
+                <TextNumInfo text="CIRCULATING SUPPLY" num={formatNumber(coinData.market_data.circulating_supply)} textSize="text-xs" numSize="text-lg"/>
+            </ContentBox>
+
+            <ContentBox>
+                <TextNumInfo text="TOTAL SUPPLY" num={formatNumber(coinData.market_data.total_supply)} textSize="text-xs" numSize="text-lg"/>
+            </ContentBox>
           </div>
         </div>
       </div>

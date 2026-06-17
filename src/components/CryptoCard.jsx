@@ -1,8 +1,11 @@
-import { compantPrice, formatPrice } from "../utils/formatter";
+import { Link } from "react-router-dom";
+import { compactPrice, formatPrice } from "../utils/formatter";
 import { ArrowUp, ArrowDown } from 'lucide-react'
 
 const CryptoCard = ({crypto}) => {
-    return ( <div className="w-full px-6 py-4 bg-bg-secondary mb-4 rounded-md flex flex-col gap-2 items-start hover:scale-105 cursor-pointer duration-100 ease-in">
+    return ( 
+    <Link to={`/coin/${crypto.id}`}>
+    <div className="w-full px-6 py-4 bg-bg-secondary mb-4 rounded-md flex flex-col gap-2 items-start hover:scale-105 cursor-pointer duration-100 ease-in">
         <div className="flex justify-start items-center gap-3">
             <img src={crypto.image} alt={crypto.name} className="w-10" />
             <div className="flex flex-col items-start gap-1">
@@ -20,19 +23,17 @@ const CryptoCard = ({crypto}) => {
         <div className="w-full flex justify-between">
             <div className="flex flex-col gap-2 items-start">
                 <span className="text-xs">MARKET CAP</span>
-                <h1 className="text-sm">{compantPrice(crypto.market_cap)}</h1>
+                <h1 className="text-sm">{compactPrice(crypto.market_cap)}</h1>
             </div>
 
             <div className="flex flex-col gap-2 items-start">
                 <span className="text-xs">VOLUME</span>
-                <h1 className="text-sm">{compantPrice(crypto.total_volume)}</h1>
+                <h1 className="text-sm">{compactPrice(crypto.total_volume)}</h1>
             </div>
 
         </div>
-
-
-
-    </div> );
+    </div> </Link>
+    );
 }
  
 export default CryptoCard;

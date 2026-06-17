@@ -4,7 +4,7 @@ export const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits:2, maximumFractionDigits:2 }).format(price)
 }
 
-export const compantPrice = (price) => {
+export const compactPrice = (price) => {
     return new Intl.NumberFormat('en-US', {
         style: "currency", currency: "USD", minimumFractionDigits:2, maximumFractionDigits:2, 
   notation: 'compact',

@@ -13,7 +13,7 @@ const CryptoCard = ({crypto}) => {
             <div className="flex flex-col items-start gap-1">
                 <h1 className="font-semibold">{crypto.name}</h1>
                 <span className="text-xs">{crypto.symbol.toUpperCase()}</span>
-                <MarketRankPill rank={crypto.market_cap_rank} />
+                <MarketRankPill rank={`#${crypto.market_cap_rank}`} additionalStyles='text-sm' />
             </div>
         </div>
 

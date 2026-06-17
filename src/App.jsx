@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import CoinDetails from './pages/CoinDetails'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path='/coin/:id' element={<CoinDetails />}/>
 
     </Routes>
+    
     </BrowserRouter>
   )
 }

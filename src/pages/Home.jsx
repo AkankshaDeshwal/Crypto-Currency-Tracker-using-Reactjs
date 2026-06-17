@@ -3,6 +3,7 @@ import { fetchCryptos } from "../api/CoinGecko";
 import Header from "../components/Header";
 import CryptoCard from "../components/CryptoCard";
 import Button from "../components/Button";
+import Footer from "../components/Footer";
 
 const Home = () => {
     const [cryptoList, setCryptoList] = useState([]);
@@ -87,6 +88,8 @@ const Home = () => {
         </div>
         
         {isLoading? <div>Data Loading...</div>: <div className={`mt-8 px-4 w-full md:max-w-2/3 ${viewMode === 'grid' ? "grid grid-cols-2 md:grid-cols-3 gap-8 justify-center": ""}`}>{filteredList.map((crypto) => <CryptoCard crypto={crypto} key={crypto.id} />)}</div>}
+
+        <Footer />
     </div>
     );
 }

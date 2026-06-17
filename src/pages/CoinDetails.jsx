@@ -8,6 +8,7 @@ import PercentChangeDisplay from "../components/PercentChangeDisplay";
 import TextNumInfo from "../components/TextNumInfo";
 import {ResponsiveContainer, LineChart, XAxis, YAxis, Line, CartesianGrid, Tooltip} from "recharts";
 import ContentBox from "../components/ContentBox";
+import Footer from "../components/Footer";
 
 const CoinDetails = () => {
   const { id } = useParams();
@@ -162,6 +163,7 @@ const CoinDetails = () => {
             </ContentBox>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

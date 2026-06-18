@@ -93,7 +93,7 @@ const Home = () => {
     }
 
     return ( <div className="w-full mx-auto flex flex-col items-center">
-         <Header searchHandler={searchHandler}/>
+         <Header sideComp="search" sideCompHandler={searchHandler}/>
          <hr  className="w-full shadow-md shadow-gray-100 my-4"/>
          
         <div className="w-full md:max-w-2/3 p-2 flex justify-between items-center">
@@ -108,8 +108,8 @@ const Home = () => {
                 </select>
             </div>
             <div className="flex gap-4">
-                <Button btnText='Grid' active={viewMode === 'grid'? "bg-foreground text-bg-primary": ""} onClickHandler = {() => setViewMode('grid')}/>
-                <Button btnText='List' active={viewMode === 'list'? "bg-foreground text-bg-primary": ""} onClickHandler = {() => setViewMode('list')}/>
+                <Button btnText='Grid' addStyles={viewMode === 'grid'? "bg-foreground text-bg-primary": ""} onClickHandler = {() => setViewMode('grid')}/>
+                <Button btnText='List' addStyles={viewMode === 'list'? "bg-foreground text-bg-primary": ""} onClickHandler = {() => setViewMode('list')}/>
             </div>
         </div>
         

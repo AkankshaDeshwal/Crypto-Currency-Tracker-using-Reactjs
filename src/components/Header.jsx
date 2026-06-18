@@ -1,6 +1,8 @@
+import { ArrowLeft } from 'lucide-react';
 import headerImage from '../assets/images/header-icon.jpg'
+import Button from './Button';
 
-const Header = ({searchHandler}) => {
+const Header = ({sideComp, sideCompHandler}) => {
     return ( 
         <nav className="w-full md:max-w-2/3 h-30 flex justify-between items-center mt-8">
             <div className="flex flex-col items-start gap-2">
@@ -11,9 +13,11 @@ const Header = ({searchHandler}) => {
                 <span className='text-sm'>Real time crypto-currency prices and market data</span>
             </div>
             <div>
-                <input type="text" placeholder="Search crypto" className="border-none outline-none bg-bg-secondary rounded-4xl py-2 px-4 w-80 md:max-md:hidden" onChange={(e) => searchHandler(e)}/>
+                {sideComp === 'search'? <input type="text" placeholder="Search crypto" className="border-none outline-none bg-bg-secondary rounded-4xl py-2 px-4 w-80 md:max-md:hidden" onChange={(e) => sideCompHandler(e)}/>:
+                
+                <Button btnText='Go Back' onClickHandler={sideCompHandler} addStyles="bg-foreground text-bg-primary hover:bg-muted hover:text-foreground"><ArrowLeft className='inline' size={15} /></Button>}
 
-                <span className='md:hidden'>S</span>
+                
             </div>
         </nav>
      );

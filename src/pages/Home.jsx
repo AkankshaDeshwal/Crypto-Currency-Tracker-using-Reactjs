@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import CryptoCard from "../components/CryptoCard";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import PaginationButton from "../components/PaginationButton";
 
 const Home = () => {
     const [cryptoList, setCryptoList] = useState([]);
@@ -12,6 +14,14 @@ const Home = () => {
     const [viewMode, setViewMode] = useState('grid');
     const [sortBy, setSortBy] = useState('market_cap_rank')
     const [searchQuery, setSearchQuery] = useState('')
+    const [currentPage, setCurrentPage] = useState(0)
+    const PAGE_SIZE = 12
+
+    const totalProducts = filteredList.length
+    const noOfPages = Math.ceil(totalProducts/PAGE_SIZE)
+    const start = currentPage*PAGE_SIZE
+    const end = start + PAGE_SIZE
+    
 
     const fetchCryptoData = async ()=> {
         try{
@@ -25,10 +35,26 @@ const Home = () => {
 
     }
 
+    const nextPage = () => {
+        setCurrentPage(prev => prev+1)
+    }
+
+    const prevPage = () => {
+        setCurrentPage(prev => prev-1)
+    }
+
     useEffect(() => {
         console.log('fetch data')
         fetchCryptoData()
     }, [])
+
+    useEffect(() => {
+        window.scrollTo({
+            top:0,
+            bottom:0, 
+            behavior:'instant'
+        })
+    }, [currentPage])
 
     console.log('PAGE PAINTED')
 
@@ -87,7 +113,15 @@ const Home = () => {
             </div>
         </div>
         
-        {isLoading? <div>Data Loading...</div>: <div className={`mt-8 px-4 w-full md:max-w-2/3 ${viewMode === 'grid' ? "grid grid-cols-2 md:grid-cols-3 gap-8 justify-center": ""}`}>{filteredList.map((crypto) => <CryptoCard crypto={crypto} key={crypto.id} />)}</div>}
+        {isLoading? <div>Data Loading...</div>: <div className={`mt-8 px-4 w-full md:max-w-2/3 ${viewMode === 'grid' ? "grid grid-cols-2 md:grid-cols-3 gap-8 justify-center": ""}`}>{filteredList.slice(start, end).map((crypto) => <CryptoCard crypto={crypto} key={crypto.id} />)}</div>}
+        <div className="flex w-full justify-center gap-2">
+            <PaginationButton currentPage={currentPage} onClickHandler={prevPage} disableButton={currentPage === 0}><ChevronLeft /></PaginationButton>
+
+            <PaginationButton currentPage={currentPage} onClickHandler={nextPage} disableButton={currentPage === noOfPages-1}><ChevronRight /></PaginationButton>
+
+
+            
+        </div>
 
         <Footer />
     </div>

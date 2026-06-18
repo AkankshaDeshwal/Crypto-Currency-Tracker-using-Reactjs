@@ -2,11 +2,9 @@ import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import CoinDetails from './pages/CoinDetails'
-import Footer from './components/Footer'
 
 
-function App() {
-  const [count, setCount] = useState(0)
+function App() { 
 
   return (
     <BrowserRouter>

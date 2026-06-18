@@ -52,6 +52,8 @@ const CoinDetails = () => {
     }
   }
 
+  const goHome = () => navigate("/")
+
   useEffect(() => {
     loadCoinData();
     loadChartData()
@@ -65,7 +67,7 @@ const CoinDetails = () => {
     return (
       <div>
         Coin not found.
-        <button onClick={() => navigate("/")}>Go Back</button>
+        <button onClick={goHome}>Go Back</button>
       </div>
     );
   }
@@ -73,7 +75,7 @@ const CoinDetails = () => {
   return (
     <>
       <div className="w-full mx-auto flex flex-col items-center">
-        <Header />
+        <Header sideComp="button" sideCompHandler={goHome} />
         <hr className="w-full shadow-md shadow-gray-100 my-4" />
 
         <div className="w-full md:max-w-2/3 flex flex-col items-start mt-4  mb-8 gap-8">

@@ -10,7 +10,7 @@ const CryptoCard = ({crypto}) => {
     <Link to={`/coin/${crypto.id}`}>
     <div className="w-full px-6 py-4 bg-bg-secondary mb-4 rounded-md flex flex-col gap-2 items-start hover:scale-105 cursor-pointer duration-100 ease-in">
         <div className="flex justify-start items-center gap-3">
-            <img src={crypto.image} alt={crypto.name} className="w-10" />
+            <img src={crypto.image} alt={crypto.name} className="w-6 md:w-10" />
             <div className="flex flex-col items-start gap-1">
                 <h1 className="font-semibold" >{crypto.name.length>22? (crypto.name.slice(0, 19) + "..."): crypto.name}</h1>
                 <span className="text-xs">{crypto.symbol.toUpperCase()}</span>

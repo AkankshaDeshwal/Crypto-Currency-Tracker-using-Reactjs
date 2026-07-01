@@ -92,13 +92,13 @@ const Home = () => {
         setSearchQuery(e.target.value)
     }
 
-    return ( <div className="w-full mx-auto flex flex-col items-center">
+    return ( <div className="w-full mx-auto flex flex-col items-center px-4">
          <Header sideComp="search" sideCompHandler={searchHandler}/>
          <hr  className="w-full shadow-md shadow-gray-100 my-4"/>
          
-        <div className="w-full md:max-w-2/3 p-2 flex justify-between items-center">
+        <div className="w-full md:max-w-2/3 p-2 flex justify-between items-cente gap-6">
             <div>
-                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="outline">
                     <option value=''>Sort By:</option>
                     <option value="market_cap_rank">Rank</option>
                     <option value="price">Price (Low to High)</option>
@@ -107,13 +107,13 @@ const Home = () => {
                     <option value="market_cap">Market Cap</option>
                 </select>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-2">
                 <Button btnText='Grid' addStyles={viewMode === 'grid'? "bg-foreground text-bg-primary": ""} onClickHandler = {() => setViewMode('grid')}/>
                 <Button btnText='List' addStyles={viewMode === 'list'? "bg-foreground text-bg-primary": ""} onClickHandler = {() => setViewMode('list')}/>
             </div>
         </div>
         
-        {isLoading? <div>Data Loading...</div>: <div className={`mt-8 px-4 w-full md:max-w-2/3 ${viewMode === 'grid' ? "grid grid-cols-2 md:grid-cols-3 gap-8 justify-center": ""}`}>{filteredList.slice(start, end).map((crypto) => <CryptoCard crypto={crypto} key={crypto.id} />)}</div>}
+        {isLoading? <div>Data Loading...</div>: <div className={`mt-8 w-full md:max-w-2/3 ${viewMode === 'grid' ? "grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 justify-center": ""}`}>{filteredList.slice(start, end).map((crypto) => <CryptoCard crypto={crypto} key={crypto.id} />)}</div>}
         <div className="flex w-full justify-center gap-2">
             <PaginationButton currentPage={currentPage} onClickHandler={prevPage} disableButton={currentPage === 0}><ChevronLeft /></PaginationButton>
 

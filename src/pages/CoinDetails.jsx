@@ -74,7 +74,7 @@ const CoinDetails = () => {
 
   return (
     <>
-      <div className="w-full mx-auto flex flex-col items-center">
+      <div className="w-full mx-auto flex flex-col items-center px-4">
         <Header sideComp="button" sideCompHandler={goHome} />
         <hr className="w-full shadow-md shadow-gray-100 my-4" />
 
@@ -111,7 +111,7 @@ const CoinDetails = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col bg-bg-secondary rounded-md outline-1 outline-muted px-12 py-8 items-start gap-8">
+          <div className="w-full flex flex-col bg-bg-secondary rounded-md outline-1 outline-muted px-6 md:px-12 py-8 items-start gap-8 text-xs">
             <h1 className="text-xl font-semibold mt-2">
               Prices Chart (7 days)
             </h1>
@@ -147,7 +147,7 @@ const CoinDetails = () => {
             
           </div>
 
-          <div className="w-full flex justify-between gap-6">
+          <div className="w-full flex flex-wrap justify-between gap-6">
             <ContentBox>
                 <TextNumInfo text="MARKET CAP" num={compactPrice(coinData.market_data.market_cap.usd)} textSize="text-xs" numSize="text-lg"/>
             </ContentBox>

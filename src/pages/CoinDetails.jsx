@@ -147,7 +147,7 @@ const CoinDetails = () => {
             
           </div>
 
-          <div className="w-full flex flex-wrap justify-between gap-6">
+          <div className="w-full flex flex-wrap justify-between gap-2">
             <ContentBox>
                 <TextNumInfo text="MARKET CAP" num={compactPrice(coinData.market_data.market_cap.usd)} textSize="text-xs" numSize="text-lg"/>
             </ContentBox>

@@ -1,16 +1,55 @@
-# React + Vite
+<h1>Crypto Currency Tracker</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based cryptocurrency tracking application that provides real-time market data, detailed cryptocurrency information, and interactive price charts.
 
-Currently, two official plugins are available:
+The application allows users to explore the cryptocurrency market through search, sorting, detailed coin pages, and historical price visualizations, offering a clean and intuitive user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features:
 
-## React Compiler
+- Real-time cryptocurrency market data
+- Search and sort Cyrpto currencies
+- Individual cryptocurrency detail pages
+- Client-side routing with React Router
+- Responsive and user-friendly interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Tech Stack:
 
-## Expanding the ESLint configuration
+1. Frontend
+- React
+- Javascript(ES6+)
+- HTML5
+- Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Libraries
+- React router dom
+- Tailwind
+- Lucide react
+- Recharts
+
+3. API
+- CoinGecko
+
+Concepts Demonstrated:
+- API integration using asynchronous JavaScript
+- Client-side routing with React Router
+- Dynamic data rendering
+- Search and sorting algorithms
+- Reusable React components
+- State management with React Hooks
+- Interactive data visualization using recharts
+- Responsive web design
+
+Screenshots:
+
+Home Page:
+![alt text](image.png)
+<br/>
+Individual Crypto Page:
+![alt text](image-1.png)
+<br/>
+Crypto Sorting:
+![alt text](image-2.png)
+<br/>
+
+Future Improvements:
+- Display prices in user preferred currency
